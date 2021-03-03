@@ -6,19 +6,21 @@ class Pattern extends Component {
   static propTypes = {
     id: PropTypes.string.isRequired,
     link: PropTypes.string.isRequired,
-    size: PropTypes.object
+    size: PropTypes.object,
+    patternUnits: PropTypes.string
   };
   static defaultProps = {
-    size: new Point(10, 10)
+    size: new Point(10, 10),
+    patternUnits: 'objectBoundingBox'
   };
 
   render() {
-    const { id, link, size } = this.props;
+    const { id, link, size, patternUnits } = this.props;
 
     return (
       <defs>
-        <pattern id={id} patternUnits="objectBoundingBox" x={0} y={0} width="100%" height="100%">
-          <image xlinkHref={link} x={0} y={0} width={size.x} height={size.y} />
+        <pattern id={id} patternUnits={patternUnits} x={0} y={0} width={size.x} height={size.y}>
+          <image xlinkHref={link} x={0} y={0} width={size.x*2} height={size.y*2} />
         </pattern>
       </defs>
     );
