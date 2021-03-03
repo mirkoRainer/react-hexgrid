@@ -37,7 +37,7 @@
   "files": [
     "lib/",
     "dist/"
-  ], 
+  ],
   "jest": {
     "setupTestFrameworkScriptFile": "<rootDir>test/setupTests.js"
   }
