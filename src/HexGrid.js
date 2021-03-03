@@ -3,13 +3,14 @@ import PropTypes from 'prop-types';
 
 class HexGrid extends Component {
   static propTypes = {
+    preserveAspectRatio: PropTypes.string,
     width: PropTypes.oneOfType([
       PropTypes.string.isRequired,
-      PropTypes.number.isRequired,
+      PropTypes.number.isRequired
     ]),
     height: PropTypes.oneOfType([
       PropTypes.string.isRequired,
-      PropTypes.number.isRequired,
+      PropTypes.number.isRequired
     ]),
     viewBox: PropTypes.objectOf(PropTypes.number),
     children: PropTypes.node.isRequired
@@ -23,16 +24,23 @@ class HexGrid extends Component {
       y: -50,
       width: 100,
       height: 100
-    }
+    },
+    preserveAspectRatio: "xMidYMid meet"
   }
 
   render() {
-    const { width, height, viewBox } = this.props
+    const { width, height, viewBox, preserveAspectRatio } = this.props
     return (
-      <svg className="grid" width={width} height={height} viewBox={`${viewBox.x} ${viewBox.y} ${viewBox.width} ${viewBox.height}`} version="1.1" xmlns="http://www.w3.org/2000/svg">
-        <ViewBoxProvider value={viewBox} >
-          {this.props.children}
-        </ViewBoxProvider>
+      <svg
+        className="grid"
+        preserveAspectRatio={preserveAspectRatio}
+        width={width}
+        height={height}
+        viewBox={viewBox}
+        version="1.1"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        {this.props.children}
       </svg>
     );
   }
