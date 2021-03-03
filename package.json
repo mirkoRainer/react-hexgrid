@@ -1,10 +1,10 @@
 {
-  "name": "@json2d/react-hexgrid",
+  "name": "@mirkorainer/react-hexgrid",
   "description": "Interactive hexagon grids with React bindings",
-  "version": "1.0.3-filler",
+  "version": "1.1.0",
   "main": "lib/index.js",
   "author": "Hellenic",
-  "repository": "Hellenic/react-hexgrid",
+  "repository": "MirkoRainer/react-hexgrid",
   "license": "MIT",
   "scripts": {
     "compile": "babel src/ --out-dir lib",
