@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import Hex from '../models/Hex';
 import HexUtils from '../HexUtils';
 import { LayoutConsumer } from '../Layout';
+import isUrl from 'is-url'
 
 class Hexagon extends Component {
   static propTypes = {
@@ -101,7 +102,7 @@ class Hexagon extends Component {
   render() {
     const { fill, cellStyle, className, points } = this.props;
     const { hex, pixel } = this.state;
-    const fillId = (fill) ? `url(#${fill})` : null;
+    const fillId = (fill) ? isUrl(fill) ? `url(#${fill})` : fill : null;
     return (
       <g
         className={classNames('hexagon-group', className)}
